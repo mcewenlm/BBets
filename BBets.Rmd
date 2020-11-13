@@ -41,6 +41,19 @@ daysYEAR=1:365
 bDAYS=sample(daysYEAR,35,replace=TRUE)
 length(unique(bDAYS))
 ```
+
+```{r}
+bank=0
+for(i in 1:637){
+  class= sample(daysYEAR,35,replace=TRUE)
+  n=length(unique(class))
+  if(n == 35)bank=bank-2
+  else bank=bank+1
+}
+print(bank)
+```
+
+
 ```{r}
 results=vector("numeric")
 for(j in 1:1000){
@@ -65,7 +78,11 @@ favstats(results)
 
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
+# Confidence Interval of Brownlows earning
 # 95% confidence interval  
+  
+<!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->    
+  
 ```{r}
 results=vector("numeric")
 for(j in 1:1000){
@@ -96,19 +113,39 @@ bank=0
 for(i in 1:637){
   class=sample(daysYEAR,35,replace=TRUE)
   n=length(unique(class))
-  if(n == 35)bank=bank-3
+  if(n == 35)bank=bank-4.5
   else bank=bank+1
 }
 results[j]=bank
 }
 hist(results)
 ```
-
-
-<!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
-
-
+  
+The amount Dr J would have to pay for each loss to make this a fair bet is 4.50   
+  
+#number of students for a fair bet  
+  
+```{r}
+results=vector("numeric")
+for(j in 1:1000){
+bank=0
+for(i in 1:637){
+  class=sample(daysYEAR,28,replace=TRUE)
+  n=length(unique(class))
+  if(n == 28)bank=bank-2
+  else bank=bank+1
+}
+results[j]=bank
+}
+hist(results)
+```
+   
+The number of students in the sample size that would make it a fair bet is about 28 students.  
+  
 # Discussion and Conclusion
 
-<!--Discussion and conclusion here.  If professor Brownlow is consistantly making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
+<!--Discussion and conclusion here.  If professor Brownlow is consistently making or losing money how could he change his payout so that his profits center on zero?  Also discuss what size his class should be in order to have his current scheme balance at zero profit.!-->
 
+Professor Brownlow is consistently making money.  
+If he changes his bet to 4.50 instead of 2, his average profits center close to zero.   
+If his class size is down to about 28 students, the profit balances close to zero as well.  
